@@ -65,13 +65,13 @@
  */
 switch (ENVIRONMENT)
 {
-	case 'development':
+	case 'development asdasdasdasd':
 		error_reporting(-1);
 		ini_set('display_errors', 1);
 	break;
 
-	case 'testing':
-	case 'production changing this line':
+	case 'testing' asd asd asd:
+	case 'production changing this lineasdasdasd aasd asd':
 		ini_set('display_errors', 0);
 		if (version_compare(PHP_VERSION, '5.3', '>='))
 		{
