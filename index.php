@@ -77,10 +77,21 @@ switch (ENVIRONMENT)
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
 		}
+		qweqweqwe
 		else
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
-		}
+		}vpopmail_alias_add(ncurses_assume_default_colors(asd
+			asd
+			asd
+			asd
+			asdas
+			date_sub()dasdasdasdsa, bg), domain, alias)dasdasdasdsaasd
+		a
+		session_decode(asdasd;qweqwe
+			qwe
+			qw
+			enchant_dict_quick_check(weqwe, word))
 	break;
 
 	default:
