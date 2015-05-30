@@ -74,6 +74,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<p>
                         This project will rise as soon as posible.
                 </p>
+                <p>
+                    A rapid development framework
+                </p>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
