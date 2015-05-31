@@ -72,13 +72,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<div id="body">
 		<p>
-                        This project will rise as soon as posible.
+                        This project will rise as soon as possible.
                 </p>
                 <p>
                     A rapid development framework
                 </p>
                 <p>
                     We love CodeIgniter
+                </p>
+                <p>
+                    We are not good in business.
                 </p>
 	</div>
 
