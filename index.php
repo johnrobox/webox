@@ -65,33 +65,22 @@
  */
 switch (ENVIRONMENT)
 {
-	case 'development asdasdasdasd':
+	case 'development':
 		error_reporting(-1);
 		ini_set('display_errors', 1);
 	break;
 
-	case 'testing' asd asd asd:
-	case 'production changing this lineasdasdasd aasd asd':
+	case 'testing':
+	case 'production':
 		ini_set('display_errors', 0);
 		if (version_compare(PHP_VERSION, '5.3', '>='))
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
 		}
-		qweqweqwe
 		else
 		{
 			error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT & ~E_USER_NOTICE);
-		}vpopmail_alias_add(ncurses_assume_default_colors(asd
-			asd
-			asd
-			asd
-			asdas
-			date_sub()dasdasdasdsa, bg), domain, alias)dasdasdasdsaasd
-		a
-		session_decode(asdasd;qweqwe
-			qwe
-			qw
-			enchant_dict_quick_check(weqwe, word))
+		}
 	break;
 
 	default:
