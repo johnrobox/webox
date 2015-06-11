@@ -18,52 +18,22 @@ class fdci_web_crawler {
             $xpath = new DOMXPath($dom);
             return $xpath;
         }
-        function insertData($reference_no,$original_site,$site_link_id,$original_post_link,$title,$description,$price,$product_image,$furnishing,$location,$posted_date,$square_area,$bedrooms,$bathrooms,$floor,$name_of_posted_person,$contact_mobile,$contact_email,$contact_landline,$created,$modified,$status){
-
-            
+        function insertData($reference_no,$original_site,$site_link_id,$original_post_link,$title,$description,$price,$product_image,$furnishing,$location,$posted_date,$square_area,$bedrooms,$bathrooms,$floor,$name_of_posted_person,$contact_mobile,$contact_email,$contact_landline,$created,$modified,$status) {
 
         }
 }
 
 
-// rent pad;
+// locanto
 class locanto extends fdci_web_crawler {
     
     function getData(){
-        $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "2thinkers_cebu";
-            
-            // Create connection
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        
         
         $originalUrl = "http://www.locanto.ph/geo/539918/Houses-for-Rent/307/Cebu-City/?sort=dist&dist=&post_type=1&page=";
         $page = 0;
         $allItem = 1;
-        $reference_no = '';
-        $original_site ='';
-        $site_link_id = '';
-        $original_post_link = '';
-        $title = '';
-        $description = '';
-        $price = '';
-        $product_image = '';
-        $furnishing = '';
-        $location = '';
-        $posted_date = '';
-        $square_area    = '';
-        $bedrooms   =   '';
-        $bathrooms  =   '';
-        $floor  =   '';
-        $name_of_posted_person  =   '';
-        $contact_mobile =   '';
-        $contact_email = '';
-        $contact_landline = '';
-        $created = '';
-        $modified = '';
-        $status = '';
-
+        
 
             ## Get the data from page 1 to bottom
             do{
@@ -230,11 +200,18 @@ class locanto extends fdci_web_crawler {
                                         $modified  =  '';
                                         $status    =  1;
                                
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $db = "cebu_ewd_feup_fields";
+            
+            // Create connection
+            $conn = mysqli_connect($servername, $username, $password, $db);
 
 
             // Check connection
 
-            $sql = "INSERT INTO fdci_web_crawler (
+            $sql = "INSERT INTO cebu_property (
                 reference_no,
                 original_site,
                 site_link_id,
@@ -286,21 +263,10 @@ class locanto extends fdci_web_crawler {
             mysqli_query($conn, $sql);
             mysqli_close($conn);
 
-
-
-
-
-
-
-
-
-
-
                                 //parent::insertData($reference_no,$original_site,$site_link_id,$original_post_link,$title,$description,$price,$product_image,$furnishing,$location,$posted_date,$square_area,$bedrooms,$bathrooms,$floor,$name_of_posted_person,$contact_mobile,$contact_email,$contact_landline,$created,$modified,$status);
                                 die();
                                     $numberOfItem++;
                                     $allItem++;
-                
                 }
                 $page++;
                 die();
@@ -309,11 +275,8 @@ class locanto extends fdci_web_crawler {
             }// end of while loop
 
     }//end of url function 
-}// end of class
-
-
+}
+// end of class
 $b = new locanto();
-
 echo $b->getData();
-
 ?>
