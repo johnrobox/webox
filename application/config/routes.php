@@ -59,5 +59,7 @@ $route['default_controller'] = 'job';
  */
 $route['admin-login'] = 'AdminLoginController';
 $route['admin-login-exec'] = 'AdminLoginController/loginExec';
+$route['admin-register'] = 'AdminRegisterController';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
