@@ -19,22 +19,22 @@ class fdci_web_crawler {
             return $xpath;
         }
         function connection(){
-          $con = mysqli_connect("localhost","root","","2thinkers_cebu");
+          $con = mysqli_connect("mysql484.db.sakura.ne.jp","2thinkers","yun12101210","2thinkers_cebu");
           return $con;
         }
 
         function clean($str) {
             $str = @trim($str);
-            if(get_magic_quotes_gpc()) {
-                    $str = stripslashes($str);
-            }
-             return mysql_real_escape_string($str);
+            $str = stripslashes($str);
+             return $str;
         }
 
         function insertData($reference_no,$original_site,$site_link_id,$original_post_link,$title,$description,$price,$product_image,$furnishing,$location,$posted_date,$square_area,$bedrooms,$bathrooms,$floor,$name_of_posted_person,$contact_mobile,$contact_email,$contact_landline,$status)
         {
-            $description = $this->clean($description);
             $con = $this->connection();
+            $description = $this->clean(mysqli_real_escape_string($con,$description));
+            var_dump($description);
+            
             $result = mysqli_query($con,"SELECT * FROM fdci_web_crawler WHERE reference_no = '$reference_no' AND site_link_id = '$site_link_id'");
             if(mysqli_num_rows($result)==0) {
                    mysqli_query($con,"INSERT INTO fdci_web_crawler (

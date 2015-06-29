@@ -25,7 +25,7 @@ for($b=1;$b<=16;$b++){
 
         $reference_no = '';
         $original_site ='';
-        $site_link_id = '';
+        $site_link_id = '2';
         $original_post_link = '';
         $title = '';
         $description = '';
@@ -47,8 +47,15 @@ for($b=1;$b<=16;$b++){
         $status = '';
 
 
-         $urlTitle = $data['model']['searchResult']['listings'][$a]['urlTitle'];
+          
          $id = $data['model']['searchResult']['listings'][$a]['id'];
+     $con = parent::connection();
+
+     $result = mysqli_query($con,"SELECT * FROM fdci_web_crawler WHERE reference_no = '$id' AND site_link_id = '$site_link_id'");
+     if(mysqli_num_rows($result) == 0) {
+
+         $urlTitle = $data['model']['searchResult']['listings'][$a]['urlTitle'];
+         
          $address = $data['model']['searchResult']['listings'][$a]['address'];
          $city = $data['model']['searchResult']['listings'][$a]['city'];
 
@@ -109,7 +116,7 @@ for($b=1;$b<=16;$b++){
                                         $site_link_id  =  '2';
                                         $original_post_link    =  $siteUrl;
                                         $title =  $title;
-                                        $description   = $Communitydescription;
+                                        $description   = $descriptions;
                                         $price =  $longMonthRate;
                                         $product_image =  $jsonImage;
                                         $furnishing    =  'Fully Furnished';
@@ -127,9 +134,8 @@ for($b=1;$b<=16;$b++){
                                         $modified  =  '';
                                         $status    =  1;
 
-      
         parent::insertData($reference_no,$original_site,$site_link_id,$original_post_link,$title,$description,$price,$product_image,$furnishing,$location,$posted_date,$square_area,$bedrooms,$bathrooms,$floor,$name_of_posted_person,$contact_mobile,$contact_email,$contact_landline,$status);
-
+        }
          $c++;
     }
 }

@@ -10,7 +10,7 @@ class locanto extends fdci_web_crawler {
         $allItem = 1;
         $reference_no = '';
         $original_site ='';
-        $site_link_id = '';
+        $site_link_id = '1';
         $original_post_link = '';
         $title = '';
         $description = '';
@@ -63,6 +63,19 @@ class locanto extends fdci_web_crawler {
                                 $variable =  parent::exeCurl($url);
                                 $xpathRow = parent::dom($variable);
 
+## Get the ID Number
+                                $rowID = $xpathRow->query('//div[@id="ad-info-header"]');
+                                $propID = "";
+                                foreach ($rowID as $rowItem) {
+                                    $text = trim(preg_replace("/[\r\nAdID: ]+/", "", $rowItem->nodeValue));
+                                    $propID = $text;
+                                }
+                $con = parent::connection();
+
+                $result = mysqli_query($con,"SELECT * FROM fdci_web_crawler WHERE reference_no = '$propID' AND site_link_id = '$site_link_id'");
+                if(mysqli_num_rows($result) == 0) {
+
+
 
                                 ## Get the title 
                                 $rowTitle = $xpathRow->query('//span[@class="h2"]');
@@ -81,13 +94,7 @@ class locanto extends fdci_web_crawler {
                                     $explodedPrice = explode(" ", $propPrice);
                                 }
 
-                                ## Get the ID Number
-                                $rowID = $xpathRow->query('//div[@id="ad-info-header"]');
-                                $propID = "";
-                                foreach ($rowID as $rowItem) {
-                                    $text = trim(preg_replace("/[\r\nAdID: ]+/", "", $rowItem->nodeValue));
-                                    $propID = $text;
-                                }
+                                
 
 
                                 ## Get the Advertiser
@@ -191,11 +198,11 @@ class locanto extends fdci_web_crawler {
                                         $status    =  1;
 
                 parent::insertData($reference_no,$original_site,$site_link_id,$original_post_link,$title,$description,$price,$product_image,$furnishing,$location,$posted_date,$square_area,$bedrooms,$bathrooms,$floor,$name_of_posted_person,$contact_mobile,$contact_email,$contact_landline,$status);
-            die();
+           
             $numberOfItem++;
             $allItem++;
                 
-                }
+                } }
                 $page++;
             }while($numberOfItem==25);{
 
