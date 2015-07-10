@@ -1,0 +1,39 @@
+/* 
+    Document   : admin-style
+    Created on : Jul 5, 2015, 6:32:43 AM
+    Author     : JOHNRO
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+label {font-size: 13px; color:#777}
+.li-link {
+    border:1px solid #337ab7; border-radius:5px;
+}
+
+.li-link a:hover{
+    background-color: orange;
+    color: orange;
+}
+.left-menu {
+    padding-left: 0px;
+    background-color: #eee;
+    padding-right: 0px;
+}
+.page-container {
+    padding-right: 0px;
+}
+.text-red{
+    color: red;
+}
+/*.page-container{
+    padding-left: 5px;
+}*/

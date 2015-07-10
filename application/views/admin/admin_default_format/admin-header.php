@@ -14,10 +14,22 @@
         <link href="/user/favicon.ico?v=1" type="image/x-icon" rel="icon" />
         <link href="/user/favicon.ico?v=1" type="image/x-icon" rel="shortcut icon" />        
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap.min.css"/>    
-        <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-theme.min.css">        
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-theme.min.css"> 
+        <link rel="stylesheet" href="<?php echo base_url(); ?>css/admin-style.css">
+        <script src="<?php echo base_url(); ?>js/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-        <script src="<?php echo base_url(); ?>js/jquery-1.3.2.min.js"></script>
-        <script src="<?php echo base_url(); ?>js/jquery.blockUI.js"></script>
+        
+        <script src= "<?php echo base_url();?>js/angular.min.js"></script>
+        
+        <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
+        <div class="container-fluid">
+            
+                
+                
+
+
+
+    
      

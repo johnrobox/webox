@@ -1,0 +1,19 @@
+/* 
+    Document   : visitor-style
+    Created on : Jul 9, 2015, 7:05:41 AM
+    Author     : JOHNRO
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+.text-red{
+    color: red;
+}

@@ -1,0 +1,20 @@
+/* 
+    Document   : customStyle
+    Created on : Jul 1, 2015, 6:41:10 AM
+    Author     : JOHNRO
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+.text-red {
+    color :  red;
+}
+

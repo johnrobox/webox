@@ -1,7 +1,8 @@
 
-$(document).ready(function() {
-			$("#loginSubmit").click(function(){
-                            $.blockUI({ css: { 
+
+$(document).ready(function(e) {
+    $("#loginSubmit").click(function(){
+        $.blockUI({ css: { 
                             border: 'none', 
                             padding: '10px', 
                             backgroundColor: '#000', 
@@ -11,22 +12,19 @@ $(document).ready(function() {
                             color: '#fff' 
                         } }); 
 
-                        setTimeout($.unblockUI, 2000); 
-                        
-				var form_data = {
-                                        username: $("#username").val(),
-                                        password: $("#password").val()   
-    };
-					$.ajax({
-						type:	"POST",
-						url	:"admin-login-exec",
-						data:	form_data,
-						success: function(msg){
-							$("#errorReturn").html(msg);
-						}
-						
-					});
-				
-				return false;
-			});
-		});
+          setTimeout($.unblockUI, 2000); 
+          var uname = $("#username").val();
+          var pwd = $("#password").val();
+          
+          $.post("admin-login-exec",
+		{ "username":uname,"password":pwd },
+                function(data){
+			if(data==true){
+				location.href="admin-register";
+                        }else{
+				$("#errorReturn").text(data);
+                        }}
+          );		
+		
+	});
+});

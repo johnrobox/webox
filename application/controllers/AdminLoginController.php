@@ -13,44 +13,35 @@ class AdminLoginController extends CI_Controller {
        $this->load->view('admin/admin_default_format/admin-footer');
     }
     public function loginExec(){
-       $adminLoginData  =   array(
-            array(
-            'field' =>  'username',
-            'label' =>  'User Name',
-            'rules' =>  'required|trim'
-                ),
-            array(
-                'field' =>  'password',
-                'label' =>  'Password',
-                'rules' =>  'required|trim'
-            )
-        );
-        $this->form_validation->set_rules($adminLoginData);
-        if($this->form_validation->run()==FALSE){
-            echo validation_errors();
-        }
-        else{
-           $this->checkDatabase($this->input->post('password'));
+       $adminUsername = $this->clean($this->input->post('username'));
+       $adminPassword = $this->clean($this->input->post('password'));
+       if($adminUsername==''||$adminPassword==''){
+           echo 'Username / Password required.';
+       }else{
+           if($this->checkDatabase($adminUsername,$adminPassword))
+                echo true;
+           else
+               echo 'Invalid Password / Username';
        }
     }
     
-    public function checkDatabase($password){
-        $this->load->library('hash');
-        $username = $this->input->post('username');
-        $password = $this->hash->passwordHash($password);
+    public function checkDatabase($username,$password){
         $result = $this->AdminLoginModel->login($username,$password);
         if($result){
-            $sess_array = array();
-            foreach($result as $row){
-                $sess_array = array(
-                    'id' => 'john',
-                    'username' => 'robert'
-                );
-            }
+            return true;
         }else{
-            echo 'Invalid Password / Username';
+            return false;
         }
     }
+    
+    private function clean($str) {
+	$str = @trim($str);
+	if(get_magic_quotes_gpc()) {
+            $str = stripslashes($str);
+	}
+	return mysql_real_escape_string($str);
+    }
+    
     
 }
 
