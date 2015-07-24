@@ -9,11 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class AdminHomepageController extends CI_Controller {
     
     public function index(){
-        if ($this->session->userdata('AdminId')
-            && $this->session->userdata('AdminFirstname')
-            && $this->session->userdata('AdminLastname')
-            && $this->session->userdata('AdminUsername')
-            && $this->session->userdata('AdminApi')) 
+        if ($this->session->has_userdata('AdminId')
+            && $this->session->has_userdata('AdminFirstname')
+            && $this->session->has_userdata('AdminLastname')
+            && $this->session->has_userdata('AdminUsername')
+            && $this->session->has_userdata('AdminApi')) 
              {
                 $data['title'] = 'Admin Homepage';
                 $this->load->view('admin/admin_default_format/admin-header',$data);

@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | environments.
 |
 */
-$config['base_url'] = 'http://webox.local/';
+$config['base_url'] = 'http://localhost/webox';
 
 /*
 |--------------------------------------------------------------------------
@@ -305,7 +305,7 @@ $config['cache_query_string'] = FALSE;
 | http://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = 'ThiS_iS_The_SeCUrIty_Key_OF_WEBox_143_s';
+$config['encryption_key'] = 'ThiS_iS_The_SeCUrIty_Key_OF_WEBo';
 
 /*
 |--------------------------------------------------------------------------

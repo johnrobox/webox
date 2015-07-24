@@ -4,7 +4,7 @@
         <div style="background-color: #fff; border: 1px solid #ddd; padding: 5px; margin-bottom: 10px;font-size: 13px; font-weight: bold; border-radius:10px;">
             <div class="text-center">STEP 1</div>
         </div>
-        <?php echo form_open(base_url().'register-employer-exec'); ?>
+        <?php echo form_open(base_url().'index.php/EmployerRegisterController/registerEmployerExec'); ?>
         <div class="panel panel-default">
             <div class="panel-heading">
                 Employer Registration Panel
@@ -17,7 +17,7 @@
                     <div class="input-group-addon">
                         <span class="fa fa-user"></span>
                     </div>
-                    <input type="email" name="employerEmail" id="employerEmail" class="form-control" placeholder="Enter your Email."/>
+                    <input type="email" name="employerEmail" id="employerEmail" value="<?php echo set_value('employerEmail');?>" class="form-control" placeholder="Enter your Email."/>
                 </div>
                 
                 <br>
@@ -50,7 +50,7 @@
                     <div class="input-group-addon">
                         <span class="fa fa-user"></span>
                     </div>
-                    <input type="text" name="employerFirstname" id="employerFirstname" class="form-control" placeholder="Enter your firstname."/>
+                    <input type="text" name="employerFirstname" id="employerFirstname" value="<?php echo set_value('employerFirstname'); ?>" class="form-control" placeholder="Enter your firstname."/>
                 </div>
                 
                 <br>
@@ -61,7 +61,7 @@
                     <div class="input-group-addon">
                         <span class="fa fa-user"></span>
                     </div>
-                    <input type="text" name="employerLastname" id="employerLastname" class="form-control" placeholder="Enter your Lastname"/>
+                    <input type="text" name="employerLastname" id="employerLastname" value="<?php echo set_value('employerLastname');?>" class="form-control" placeholder="Enter your Lastname"/>
                 </div>
                 
                 <br>
@@ -122,7 +122,7 @@
                     <div class="input-group-addon">
                         <span class="fa fa-user"></span>
                     </div>
-                    <input type="text" name="employerAddressOne" id="employerAddressOne" class="form-control" placeholder="Enter your address one"/>
+                    <input type="text" name="employerAddressOne" id="employerAddressOne" value="<?php echo set_value('employerAddressOne'); ?>" class="form-control" placeholder="Enter your address one"/>
                 </div>
                 
                 <br>
@@ -133,7 +133,7 @@
                     <div class="input-group-addon">
                         <span class="fa fa-user"></span>
                     </div>
-                    <input type="text" name="employerAddressTwo" id="employerAddressTwo" class="form-control" placeholder="Enter your address two"/>
+                    <input type="text" name="employerAddressTwo" id="employerAddressTwo" value="<?php echo set_value('employerAddressTwo'); ?>" class="form-control" placeholder="Enter your address two"/>
                 </div>
                 
                 <br>
@@ -181,7 +181,7 @@
     
     <div class="col-sm-3">
         <div style="background-color: #fff; padding: 10px; border: 1px solid #eee; border-radius:1px;">
-            hello
+            
         </div>
 
     </div>

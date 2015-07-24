@@ -20,7 +20,7 @@
         <link rel="stylesheet" href="<?php echo base_url(); ?>css/bootstrap-theme.min.css">
         <script src="<?php echo base_url(); ?>js/jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>js/bootstrap.min.js"></script>
-        <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url();?>font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <script src= "<?php echo base_url();?>js/angular.min.js"></script>
         
         

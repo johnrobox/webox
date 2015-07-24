@@ -11,9 +11,10 @@ class EmployerRegisterController extends CI_Controller {
     public function index(){
         $data['title'] = 'Employer Registration';
         $this->load->view('visitor/employer_default/header',$data);
-        $this->load->view('visitor/employer_default/top-menu');
-        $this->load->view('visitor/employeer_pages/employer-registration');
+        $this->load->view('visitor/visitor_default_format/top-menu');
+        $this->load->view('visitor/employer_pages/employer-registration');
         $this->load->view('visitor/employer_default/footer');
+        $this->load->view('visitor/employer_modal/employer-login-modal');
     }//end of index function
     
     public function registerEmployerExec(){
@@ -105,16 +106,16 @@ class EmployerRegisterController extends CI_Controller {
                 'employer_firstname' => $firstname,
                 'employer_lastname' => $lastname,
                 'employer_gender' => $gender,
-                'employer_birthdate' => $birthdate,
-                'employer_address_1' => $address1,
-                'employer_address_2' => $address2,
+                'employer_birth_date' => $birthdate,
+                'employer_address_one' => $address1,
+                'employer_address_two' => $address2,
                 'employer_country' => $country,
                 'employer_status' => $status
             );
             $insert = $this->EmployerRegisterModel->registerEmployer($param);
             if($insert){
                 $this->load->library('alert');
-                $this->session->set_flashdata('employer_registration_success',$this->alert->successAlert('You are successfully registered. Thank you'));
+                $this->session->set_flashdata('employer_registration_success',$this->alert->successAlert('You are successfully registered. Thank you! <a href="#employerLoginModal" data-toggle="modal">Click here to login</a>'));
                 redirect(base_url());
                 exit();
             }else{
