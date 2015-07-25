@@ -12,16 +12,39 @@ class AdminLoginController extends CI_Controller {
        $this->load->view('admin/admin_pages/login-page');
        $this->load->view('admin/admin_default_format/admin-footer');
     }
+    
     public function loginExec(){
-       $adminUsername = $this->clean($this->input->post('username'));
-       $adminPassword = $this->clean($this->input->post('password'));
-       if($adminUsername==''||$adminPassword==''){
-           echo 'Username / Password required.';
-       }else{
-           if($this->checkDatabase($adminUsername,$adminPassword))
-                echo true;
-           else
-               echo 'Invalid Password / Username';
+       $validateLogin = array(
+           array (
+               'field' => 'username',
+               'label' => 'Username',
+               'rules' => 'required'
+           ),
+           array(
+               'field' => 'password',
+               'label' => 'Password',
+               'rules' => 'required'
+           )
+       );
+       $this->form_validation->set_rules($validateLogin);
+       if($this->form_validation->run() == false){
+           $this->index();
+       } else {
+           $adminCred = array(
+               'admin_username' => $this->clean($this->input->post('username')),
+               'admin_password' => $this->clean($this->input->post('password'))
+           );
+           $result = $this->AdminLoginModel->login($adminCred);
+           if ($result['valid'] ==  true){
+               $this->session->set_userdata($result['return']);
+               redirect(base_url().'index.php/AdminHomepageController');
+               exit();
+           } else {
+               $this->load->library('alert');
+               $this->session->set_flashdata('InvalidLogin',$this->alert->dangerAlert('Invalid Password / Username'));
+               redirect(base_url().'index.php/AdminLoginController');
+               exit();
+           }
        }
     }
     

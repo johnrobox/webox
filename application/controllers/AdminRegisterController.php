@@ -10,11 +10,11 @@ class AdminRegisterController extends CI_Controller {
     
     
     public function index(){
-        if ($this->session->userdata('AdminId')
-            && $this->session->userdata('AdminFirstname')
-            && $this->session->userdata('AdminLastname')
-            && $this->session->userdata('AdminUsername')
-            && $this->session->userdata('AdminApi')) 
+        if ($this->session->has_userdata('AdminId')
+            && $this->session->has_userdata('AdminFirstname')
+            && $this->session->has_userdata('AdminLastname')
+            && $this->session->has_userdata('AdminUsername')
+            && $this->session->has_userdata('AdminApi')) 
             {
                 $data['title'] = 'Admin Register';
                 $this->load->view('admin/admin_default_format/admin-header',$data);
@@ -81,19 +81,21 @@ class AdminRegisterController extends CI_Controller {
         }else{
             $this->load->library('hash');
             $adminCredentials = array(
-                'firstname' => $this->input->post('admin_firstname'),
-                'lastname' => $this->input->post('admin_lastname'),
-                'username' => $this->input->post('admin_username'),
-                'password' => $this->input->post('admin_password'),
-                'email' =>  $this->input->post('admin_email'),
-                'skype' => $this->input->post('admin_skype'),
-                'contact' => $this->input->post('admin_contact_no'),
-                'gender' => $this->input->post('admin_gender'),
-                'birthdate' =>  $this->input->post('admin_birthdate')
+                'admin_firstname' => $this->input->post('admin_firstname'),
+                'admin_lastname' => $this->input->post('admin_lastname'),
+                'admin_username' => $this->input->post('admin_username'),
+                'admin_password' => $this->input->post('admin_password'),
+                'admin_email' =>  $this->input->post('admin_email'),
+                'admin_skype' => $this->input->post('admin_skype'),
+                'admin_contact_no' => $this->input->post('admin_contact_no'),
+                'admin_gender' => $this->input->post('admin_gender'),
+                'admin_birthdate' =>  $this->input->post('admin_birthdate')
             );
-            $dataJson = json_encode($adminCredentials);
-            $addAction = $this->AdminRegisterModel->registerAdmin($dataJson);
+            
+            $addAction = $this->AdminRegisterModel->registerAdmin($adminCredentials);
+            
             $this->load->library('alert');
+            
             if($addAction){
                 $this->session->set_flashdata('admin_user_added_yes',$this->alert->successAlert('One admin user was successfully created.'));
             }else{

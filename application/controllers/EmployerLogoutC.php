@@ -15,16 +15,9 @@ class EmployerLogoutC extends CI_Controller {
     }
     
     public function index() {
-
-       $this->load->library('table');
-
-$data = array(
-        array('Name', 'Color', 'Size'),
-        array('Fred', 'Blue', 'Small'),
-        array('Mary', 'Red', 'Large'),
-        array('John', 'Green', 'Medium')
-);
-
-echo $this->table->generate($data);
+        $this->session->unset_userdata($this->employerSes);
+        $this->session->sess_destroy();
+        redirect(base_url());
+        exit();
     }
 }

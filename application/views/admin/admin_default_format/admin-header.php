@@ -21,7 +21,7 @@
         
         <script src= "<?php echo base_url();?>js/angular.min.js"></script>
         
-        <link href="font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo base_url(); ?>font-awesome-4.2.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     </head>
     <body>
         <div class="container-fluid">
