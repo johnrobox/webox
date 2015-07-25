@@ -6,11 +6,13 @@
                             <div style="background-color: #365f9c; font-size: 15px; color:orange; font-weight: bold; border-radius: 10px 10px 0px 0px">
                                 Select your place
                             </div>
-                            <div class="list-group-item">Bacolod</div>
-                            <div class="list-group-item">Cagayan de Oro</div>
-                            <div class="list-group-item">Cebu</div>
-                            <div class="list-group-item">Davao</div>
-                            <div class="list-group-item">Iloilo</div>
+                            <?php foreach($location as $row) { ?>
+                            <a href="<?php echo base_url(); ?>index.php/ApplicantPageC/findJob/<?php echo $row->location_name; ?>">
+                                <div class="list-group-item">
+                                    <?php echo $row->location_name; ?>
+                                </div>
+                            </a>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="col-sm-6">

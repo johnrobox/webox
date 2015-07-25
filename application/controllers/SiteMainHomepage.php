@@ -27,7 +27,8 @@ class SiteMainHomepage extends CI_Controller {
             $this->load->view('visitor/visitor_default_format/header');
             $this->load->view('visitor/visitor_default_format/top-menu');
             $this->load->view('visitor/visitor_default_format/main-head');
-            $this->load->view('visitor/visitor_pages/index');
+            $data['location'] = $this->LocationModel->getAllLocation();
+            $this->load->view('visitor/visitor_pages/index',$data);
             $this->load->view('visitor/visitor_default_format/footer');
             $this->load->view('visitor/employer_modal/employer-login-modal');
         }
