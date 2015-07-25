@@ -14,7 +14,7 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <img src="<?php echo base_url();?>img/left_content.png" style="margin-bottom: 20px;"/>
+                        <img src="<?php echo base_url();?>img/flat-icon.png" style="width:500px;margin-bottom: 20px;"/>
                     </div>
                 </div>
                 </div>
