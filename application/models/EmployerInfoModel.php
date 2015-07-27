@@ -8,8 +8,10 @@ class EmployerInfoModel extends CI_Model {
         return $row->employer_coins;
     }
     
-    public function getAllData ($employerId) {
+    public function getOwnData ($employerId) {
+        $this->db->where('id',$employerId);
         $query = $this->db->get('employer_member');
         return $query->result();
     }
+    
 }
