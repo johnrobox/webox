@@ -40,7 +40,7 @@ class EmployerMainPageC extends CI_Controller {
            $this->load->view('visitor/employer_default/top-menu');
            $data['employerCoins'] = $this->EmployerInfoModel->getCoins($this->session->userdata('employerId'));
            $this->load->view('visitor/employer_default/main-head',$data);
-           $data['employerData'] = $this->EmployerInfoModel->getAllData($this->session->userdata('employerId'));
+           $data['employerData'] = $this->EmployerInfoModel->getOwnData($this->session->userdata('employerId'));
            $this->load->view('visitor/employer_pages/settings',$data);
            $this->load->view('visitor/employer_default/footer');
            $this->load->view('visitor/employer_modal/employer-about-posting-job');
