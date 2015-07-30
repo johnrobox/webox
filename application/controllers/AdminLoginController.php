@@ -7,10 +7,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AdminLoginController extends CI_Controller {
     public function index(){
-       $data['title'] = 'Admin Login';
-       $this->load->view('admin/admin_default_format/admin-header',$data);
-       $this->load->view('admin/admin_pages/login-page');
-       $this->load->view('admin/admin_default_format/admin-footer');
+        if ($this->session->has_userdata('AdminId') && 
+                $this->session->has_userdata('AdminFirstname') &&
+                $this->session->has_userdata('AdminLastname') &&
+                $this->session->has_userdata('AdminUsername') &&
+                $this->session->has_userdata('AdminApi')) {
+            redirect(base_url().'index.php/AdminHomepageController');
+            
+        } else {
+            $data['title'] = 'Admin Login';
+            $this->load->view('admin/admin_default_format/admin-header',$data);
+            $this->load->view('admin/admin_pages/login-page');
+            $this->load->view('admin/admin_default_format/admin-footer');
+        }
     }
     
     public function loginExec(){
@@ -30,11 +39,14 @@ class AdminLoginController extends CI_Controller {
        if($this->form_validation->run() == false){
            $this->index();
        } else {
+           
            $adminCred = array(
-               'admin_username' => $this->clean($this->input->post('username')),
-               'admin_password' => $this->clean($this->input->post('password'))
+               'admin_username' => $this->input->post('username'),
+               'admin_password' => md5($this->input->post('password'))
            );
-           $result = $this->AdminLoginModel->login($adminCred);
+           $secure = $this->security->xss_clean($adminCred);
+           $result = $this->AdminLoginModel->login($secure);
+           
            if ($result['valid'] ==  true){
                $this->session->set_userdata($result['return']);
                redirect(base_url().'index.php/AdminHomepageController');
@@ -57,14 +69,7 @@ class AdminLoginController extends CI_Controller {
         }
     }
     
-    private function clean($str) {
-	$str = @trim($str);
-	if(get_magic_quotes_gpc()) {
-            $str = stripslashes($str);
-	}
-	return mysql_real_escape_string($str);
-    }
-    
+
     
 }
 

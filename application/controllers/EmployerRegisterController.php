@@ -15,6 +15,7 @@ class EmployerRegisterController extends CI_Controller {
         $this->load->view('visitor/employer_pages/employer-registration');
         $this->load->view('visitor/employer_default/footer');
         $this->load->view('visitor/employer_modal/employer-login-modal');
+        $this->load->view('visitor/employer_modal/employer-logout-modal');
     }//end of index function
     
     public function registerEmployerExec(){

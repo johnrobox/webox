@@ -84,15 +84,17 @@ class AdminRegisterController extends CI_Controller {
                 'admin_firstname' => $this->input->post('admin_firstname'),
                 'admin_lastname' => $this->input->post('admin_lastname'),
                 'admin_username' => $this->input->post('admin_username'),
-                'admin_password' => $this->input->post('admin_password'),
+                'admin_password' => md5($this->input->post('admin_password')),
                 'admin_email' =>  $this->input->post('admin_email'),
                 'admin_skype' => $this->input->post('admin_skype'),
                 'admin_contact_no' => $this->input->post('admin_contact_no'),
                 'admin_gender' => $this->input->post('admin_gender'),
-                'admin_birthdate' =>  $this->input->post('admin_birthdate')
+                'admin_birthdate' =>  $this->input->post('admin_birthdate'),
             );
             
-            $addAction = $this->AdminRegisterModel->registerAdmin($adminCredentials);
+            $role = $this->input->post('admin_role');
+            $secure = $this->security->xss_clean($adminCredentials);
+            $addAction = $this->AdminRegisterModel->registerAdmin($secure, $role);
             
             $this->load->library('alert');
             
@@ -101,7 +103,7 @@ class AdminRegisterController extends CI_Controller {
             }else{
                 $this->session->set_flashdata('admin_user_added_no',$this->alert->dangerAlert('Cannot add, there is an problem of adding admin user.'));
             }
-            redirect(base_url('admin-register'));
+            redirect(base_url().'index.php/AdminRegisterController');
             exit();
         }
     } //end of adminRegisterExec function

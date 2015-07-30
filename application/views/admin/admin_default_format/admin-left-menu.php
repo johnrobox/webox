@@ -15,18 +15,18 @@
                     </div>
                     <ul class="nav nav-pills nav-stacked">
                             <li class="li-link <?php if($title=='Admin Homepage') echo 'active'; ?>">
-                                <a href="<?php echo base_url().'admin-homepage'; ?>">
+                                <a href="<?php echo base_url().'index.php/AdminHomepageController'; ?>">
                                     <span class="fa fa-laptop"></span> Dashboard
                                 </a>
                             </li>
-                            <li class="li-link"><a href="#">Profile</a></li>
+                            <li class="li-link"><a href="<?php echo base_url(); ?>index.php/AdminSettingController">Settings</a></li>
                             <li class="li-link"><a href="#">Messages</a></li>
                             <li class="li-link"><a href="#"></a></li>
                             <li class="li-link"><a href="#"></a></li>
                             <li class="li-link"><a href="#"></a></li>
                             <li class="li-link"><a href="#"></a></li>
                             <li class="li-link <?php if($title=='Admin Register') echo 'active'; ?>">
-                                <a href="<?php echo base_url().'admin-register'; ?>">
+                                <a href="<?php echo base_url().'index.php/AdminRegisterController'; ?>">
                                     <span class="fa fa-user"></span> Add User
                                 </a>
                             </li>
