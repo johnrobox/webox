@@ -21,7 +21,7 @@ class AdminLoginModel extends CI_Model{
                'AdminFirstname' => $row->admin_firstname,
                'AdminLastname'  => $row->admin_lastname,
                'AdminUsername' =>  $row->admin_username,
-               'AdminApi' => $code
+               'AdminToken' => $code
             );
              
             date_default_timezone_set("Asia/Manila");

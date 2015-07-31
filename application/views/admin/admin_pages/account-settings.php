@@ -8,6 +8,13 @@
     </div>
     
     <div class="breadcrumb">
+        <pre>
+        <?php 
+        var_dump($adminFirstname);
+//        foreach ($adminAccountInfo as $row) {
+//            echo $row->id;
+//        }
+        ?>
         <?php echo form_open(); ?>
         <div class="form-group">
             <label for="firstname">Firstname</label>

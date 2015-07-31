@@ -2,7 +2,7 @@
                     <div class="row" style="margin:10px 0px 10px 0px; background-color: #ddd; border-radius:5px;">
                         <div class="col-xs-6" style="">
                             <div style="padding:5px 0px 5px 0px;">
-                            <image src="<?php echo base_url();?>img/user/user.png" class="img-responsive img-circle">
+                            <image src="<?php echo base_url();?>img/user/user.pngs" class="img-responsive img-circle">
                             </div>
                         </div>
                         <div class="col-xs-6">

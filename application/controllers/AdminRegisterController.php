@@ -14,7 +14,7 @@ class AdminRegisterController extends CI_Controller {
             && $this->session->has_userdata('AdminFirstname')
             && $this->session->has_userdata('AdminLastname')
             && $this->session->has_userdata('AdminUsername')
-            && $this->session->has_userdata('AdminApi')) 
+            && $this->session->has_userdata('AdminToken')) 
             {
                 $data['title'] = 'Admin Register';
                 $this->load->view('admin/admin_default_format/admin-header',$data);
