@@ -2,6 +2,7 @@
 
 class AdminAccountModel extends CI_Model {
 
+
     public function __construct() {
         parent::__construct();
         $this->adminId = $this->session->userdata('AdminId');
@@ -19,6 +20,7 @@ class AdminAccountModel extends CI_Model {
         $result = $this->checkAccount();
         if ( $result ){
             $this->db->where('id',$this->adminId);
+
             $getAdminData = $this->db->get('admin_user');
             $row = $getAdminData->row();
             $array = array(
@@ -38,6 +40,7 @@ class AdminAccountModel extends CI_Model {
         return $response;
     }
     
+
     public function updateAccount($data) {
         
         $response = array();
@@ -67,4 +70,5 @@ class AdminAccountModel extends CI_Model {
         return $response;
     }
     
+
 }

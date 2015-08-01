@@ -1,8 +1,8 @@
 <div class="col-sm-9">
     
     <div class="breadcrumb">
-        <h4>
-            <?php echo $this->session->flashdata('AdminUpdate'); ?>
+        <h4>            <?php echo $this->session->flashdata('AdminUpdate'); ?>
+
         Admin Settings 
         <span class="fa fa-arrow-right"></span>
         </h4>
@@ -52,7 +52,7 @@
                
         <input type="submit" value="Update"/>    
         <?php echo form_close(); ?>
-      
+
     </div>
     
 </div>

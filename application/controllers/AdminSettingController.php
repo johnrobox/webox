@@ -10,7 +10,7 @@ class AdminSettingController extends CI_Controller {
         $this->adminInfo = $this->AdminAccountModel->getAccountInfo();
         $this->load->library('Alert');
     }
-    
+
     public function index(){
         if ($this->session->has_userdata('AdminId')
             && $this->session->has_userdata('AdminFirstname')
@@ -37,7 +37,7 @@ class AdminSettingController extends CI_Controller {
              exit();
          }
     }
-    
+
     public function adminSettingExec() {
         if ($this->session->has_userdata('AdminId')
             && $this->session->has_userdata('AdminFirstname')
@@ -108,5 +108,6 @@ class AdminSettingController extends CI_Controller {
          }
         
     }
+
 }
 
