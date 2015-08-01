@@ -78,7 +78,6 @@ class AdminSettingController extends CI_Controller {
             if ($this->form_validation->run() == false) {
                 $this->index();
             } else {
-                echo '<pre>';
                 $data = array(
                     'admin_firstname' => $this->input->post('adminFirstname'),
                     'admin_lastname' => $this->input->post('adminLastname'),
