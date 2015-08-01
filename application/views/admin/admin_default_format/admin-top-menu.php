@@ -13,9 +13,9 @@
                   <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Settings</a></li>
+                <li><a href="<?php echo base_url();?>index.php/AdminSettingController">Settings</a></li>
                 <li class="divider"></li>
-                <li><a href="<?php echo base_url(); ?>index.php/AdminLogoutController">Logout</a></li>
+                <li><a href="#adminLogout" data-toggle="modal">Logout</a></li>
               </ul>
             </li>
           </ul>

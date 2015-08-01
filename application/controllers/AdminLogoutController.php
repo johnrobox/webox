@@ -15,14 +15,23 @@ class AdminLogoutController extends CI_Controller {
             'AdminFirstname',
             'AdminLastname',
             'AdminUsername',
-            'AdminApi'
+            'AdminToken'
+        );
+        
+        $this->data = array(
+            'adminId' => $this->session->userdata('AdminId'),
+            'adminToken' => $this->session->userdata('AdminToken')
         );
     }
     
     public function index(){
+        
+        $this->load->model('AdminLogoutModel');
+        $this->AdminLogoutModel->logout($this->data);
         $this->session->unset_userdata($this->adminSes);
         $this->session->sess_destroy();
         redirect(base_url().'index.php/AdminLoginController');
-        exit();
+        exit(); 
+        
     }
 }

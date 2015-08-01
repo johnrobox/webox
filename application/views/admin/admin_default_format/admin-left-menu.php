@@ -2,7 +2,7 @@
                     <div class="row" style="margin:10px 0px 10px 0px; background-color: #ddd; border-radius:5px;">
                         <div class="col-xs-6" style="">
                             <div style="padding:5px 0px 5px 0px;">
-                            <image src="<?php echo base_url();?>img/user/user.png" class="img-responsive img-circle">
+                            <image src="<?php echo base_url();?>img/user/user.pngs" class="img-responsive img-circle">
                             </div>
                         </div>
                         <div class="col-xs-6">
@@ -15,18 +15,18 @@
                     </div>
                     <ul class="nav nav-pills nav-stacked">
                             <li class="li-link <?php if($title=='Admin Homepage') echo 'active'; ?>">
-                                <a href="<?php echo base_url().'admin-homepage'; ?>">
+                                <a href="<?php echo base_url().'index.php/AdminHomepageController'; ?>">
                                     <span class="fa fa-laptop"></span> Dashboard
                                 </a>
                             </li>
-                            <li class="li-link"><a href="#">Profile</a></li>
+                            <li class="li-link"><a href="<?php echo base_url(); ?>index.php/AdminSettingController">Settings</a></li>
                             <li class="li-link"><a href="#">Messages</a></li>
                             <li class="li-link"><a href="#"></a></li>
                             <li class="li-link"><a href="#"></a></li>
                             <li class="li-link"><a href="#"></a></li>
                             <li class="li-link"><a href="#"></a></li>
                             <li class="li-link <?php if($title=='Admin Register') echo 'active'; ?>">
-                                <a href="<?php echo base_url().'admin-register'; ?>">
+                                <a href="<?php echo base_url().'index.php/AdminRegisterController'; ?>">
                                     <span class="fa fa-user"></span> Add User
                                 </a>
                             </li>

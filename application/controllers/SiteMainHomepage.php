@@ -23,6 +23,7 @@ class SiteMainHomepage extends CI_Controller {
                 $this->load->view('visitor/employer_pages/index',$data);
                 $this->load->view('visitor/employer_default/footer');
                 $this->load->view('visitor/employer_modal/employer-about-posting-job');
+                $this->load->view('visitor/employer_modal/employer-logout-modal');
         } else {
             $this->load->view('visitor/visitor_default_format/header');
             $this->load->view('visitor/visitor_default_format/top-menu');

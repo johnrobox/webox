@@ -16,7 +16,7 @@
                             <span class="glyphicon glyphicon-pencil"></span>
                             Register Admin
                         </div>
-                        <?php echo form_open(base_url().'admin-register-exec'); ?>
+                        <?php echo form_open(base_url().'index.php/AdminRegisterController/adminRegisterExec'); ?>
                         <div class="panel-body">
                             <div class="row">
                                 
@@ -59,10 +59,11 @@
                                     <small class="text-red">
                                         <?php echo form_error('admin_gender'); ?>
                                     </small>
-                                    <div class="input-group input-group-sm">
-                                      <span class="input-group-addon">@</span>
-                                      <input type="text" name="admin_gender" id="admin_gender" class="form-control" value="<?php echo set_value('admin_gender'); ?>"/>
-                                    </div>
+                                    <select id="admin_gender" class="form-control" name="admin_gender">
+                                        <option value="">Select Gender</option>
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                    </select>
                                 
                                     
                                     
@@ -112,6 +113,15 @@
                                       <input type="text" name="admin_birthdate" id="admin_birthdate" class="form-control" value="<?php echo set_value('admin_birthdate'); ?>"/>
                                     </div>
                                 
+                                    <label for="admin_role">Admin Role</label>
+                                    <select name="admin_role" id="admin_role" class="form-control">
+                                        <option value=""> Select admin role </option>
+                                        <option value="1"> Level 1 </option>
+                                        <option value="2"> Level 2 </option>
+                                        <option value="3"> Level 3 </option>
+                                        <option value="4"> Level 4 </option>
+                                    </select>
+                                    
                                 </div>
                             </div>
                            
