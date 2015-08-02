@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 27, 2015 at 03:23 PM
+-- Generation Time: Aug 03, 2015 at 01:15 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -42,15 +42,14 @@ CREATE TABLE IF NOT EXISTS `admin_user` (
   `admin_birthdate` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   `admin_profile` varchar(150) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `admin_user`
 --
 
 INSERT INTO `admin_user` (`id`, `admin_firstname`, `admin_lastname`, `admin_username`, `admin_password`, `admin_hash`, `admin_email`, `admin_skype`, `admin_contact_no`, `admin_gender`, `admin_birthdate`, `admin_profile`) VALUES
-(1, 'john robert', 'jerodiaz', 'john', 'john', NULL, NULL, NULL, NULL, NULL, NULL, NULL),
-(2, 'john robert', 'jerodiaz', 'johns', 'password123', NULL, 'johnrobertjerodiiaz@gmail.com', 'jeremae.jerodiaz', '09239117973', 1, 'December 13, 1993', NULL);
+(1, 'john roberts', 'jerodiaz', 'johnrobert', 'c0da0903211601d058250824485fa0a2', NULL, 'johnrobertjerodiiaz@gmail.com', 'jeremae.jerodiaz', '09239117973', 1, 'December 13, 1993', NULL);
 
 -- --------------------------------------------------------
 
@@ -77,7 +76,44 @@ CREATE TABLE IF NOT EXISTS `admin_user_log` (
 --
 
 INSERT INTO `admin_user_log` (`id`, `admin_id`, `admin_api_token`, `admin_role`, `admin_created_date`, `admin_modified_date`, `admin_last_login_date`, `admin_last_logout_date`, `admin_ip_address`, `admin_status`) VALUES
-(1, 2, 'hAiCFGfkQVR2Pjc41ZpM', 1, '2015-07-25 04:40:17', NULL, '2015-07-25 06:21:35', NULL, NULL, NULL);
+(1, 1, '9Qdn4HMklA7p8cfoKL3C', 1, '2015-08-01 04:37:17', '2015-08-01 04:42:59', '2015-08-01 05:06:50', '2015-08-01 05:04:16', '::1', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company_information`
+--
+
+CREATE TABLE IF NOT EXISTS `company_information` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `company_profile` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `company_name` varchar(250) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `company_address_one` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `company_address_two` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `company_city` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `company_province` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `company_country` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci DEFAULT NULL,
+  `company_description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci,
+  `company_video` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company_information_log`
+--
+
+CREATE TABLE IF NOT EXISTS `company_information_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `company_id` bigint(20) NOT NULL,
+  `company_created_by` bigint(20) NOT NULL,
+  `company_create_date` date NOT NULL,
+  `company_modified_date` date NOT NULL,
+  `company_ip_address` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `company_status` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -131,7 +167,7 @@ CREATE TABLE IF NOT EXISTS `employer_member_log` (
 --
 
 INSERT INTO `employer_member_log` (`id`, `employer_id`, `employer_coins`, `employer_api_token`, `employer_date_created`, `employer_date_modified`, `employer_last_login_date`, `employer_last_logout_date`, `employer_ip_address`) VALUES
-(1, 1, 2500, 'ckh32aDgijoMZmGAnXF1', '2015-07-18 09:28:59', NULL, '2015-07-26 11:09:39', NULL, '192.168.8.67');
+(1, 1, 2500, 'gYkfZCAM89GNB7KmihlF', '2015-07-18 09:28:59', NULL, '2015-08-02 09:31:20', NULL, '192.168.8.67');
 
 -- --------------------------------------------------------
 
@@ -155,6 +191,40 @@ INSERT INTO `job_location` (`id`, `location_name`, `status_flag`) VALUES
 (2, 'bacolod', 1),
 (3, 'davao', 1),
 (4, 'iloilo', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_post`
+--
+
+CREATE TABLE IF NOT EXISTS `job_post` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `job_title` varchar(200) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `job_level` int(10) NOT NULL,
+  `job_description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `job_qualification` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `job_number_of_vacancies` int(100) NOT NULL,
+  `job_how_to_apply` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `job_post_log`
+--
+
+CREATE TABLE IF NOT EXISTS `job_post_log` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `job_id` bigint(20) NOT NULL,
+  `job_created_by` bigint(20) NOT NULL,
+  `job_created_date` datetime NOT NULL,
+  `job_modified_date` datetime NOT NULL,
+  `job_ip_address` varchar(25) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `job_status` tinyint(4) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
