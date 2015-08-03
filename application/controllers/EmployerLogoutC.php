@@ -7,10 +7,10 @@ class EmployerLogoutC extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->employerSes = array(
-            'employerId',
+            'EmployerId',
             'employerFirstname',
-            'employerLastname',
-            'employerToken'
+            'EmployerLastname',
+            'EmployerToken'
         );
     }
     

@@ -23,10 +23,10 @@ class EmployerLoginModel extends CI_Model {
             $this->db->update('employer_member_log',$data);
             
             $prepareSession  = array(
-                'employerId' => $row->id,
-                'employerFirstname' => $row->employer_firstname,
-                'employerLastname' => $row->employer_lastname,
-                'employerToken' => $employerToken
+                'EmployerId' => $row->id,
+                'EmployerFirstname' => $row->employer_firstname,
+                'EmployerLastname' => $row->employer_lastname,
+                'EmployerToken' => $employerToken
             );
             return $prepareSession;
             

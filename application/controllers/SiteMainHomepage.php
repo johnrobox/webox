@@ -9,10 +9,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class SiteMainHomepage extends CI_Controller {
     
     public function index(){
-        if ($this->session->has_userdata('employerId') &&
-            $this->session->has_userdata('employerFirstname') &&
-            $this->session->has_userdata('employerLastname') &&
-            $this->session->has_userdata('employerToken')
+        if ($this->session->has_userdata('EmployerId') &&
+            $this->session->has_userdata('EmployerFirstname') &&
+            $this->session->has_userdata('EmployerLastname') &&
+            $this->session->has_userdata('EmployerToken')
             ) {
                 $data['title'] = 'Employer Page';
                 $this->load->view('visitor/employer_default/header',$data);
