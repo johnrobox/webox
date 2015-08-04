@@ -22,8 +22,8 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color:white">
               <span class="fa fa-user"> </span>
-              <?php echo ucwords(strtolower($this->session->userdata('employerFirstname'))); ?>
-              <?php echo ucwords(strtolower($this->session->userdata('employerLastname'))); ?>
+              <?php echo ucwords(strtolower($this->session->userdata('EmployerFirstname'))); ?>
+              <?php echo ucwords(strtolower($this->session->userdata('EmployerLastname'))); ?>
               <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">

@@ -2,16 +2,35 @@
 
 class EmployerInfoModel extends CI_Model {
     
-    public function getCoins ($employerId) {
-        $query = $this->db->query("SELECT employer_coins FROM employer_member_log WHERE employer_id ='$employerId'");
-        $row = $query->row();
-        return $row->employer_coins;
+    public function __construct() {
+        parent::__construct();
+        $this->employerId = $this->session->userdata('EmployerId');
+        $this->employerToken = $this->session->userdata('EmployerToken');
     }
     
-    public function getOwnData ($employerId) {
-        $this->db->where('id',$employerId);
-        $query = $this->db->get('employer_member');
-        return $query->result();
+    public function getCoins () {
+        
+        $query = $this->customQuery();
+        $row = $query->row();
+        return ($query->num_rows() == 1) ? $row->employer_coins : false; 
+         
+    }
+    
+    public function getOwnData () {
+        $query = $this->customQuery();
+        if ($query->num_rows() == 1) {
+            $row = $query->row();
+            $this->db->where('id',$row->employer_id);
+            $get = $this->db->get('employer_member');
+            return $get->result();
+        } else {
+            return false;
+        }
+    }
+    
+    private function customQuery() {
+        $query = $this->db->query("SELECT employer_id, employer_coins FROM employer_member_log WHERE employer_id ='$this->employerId' AND employer_api_token = '$this->employerToken'");
+        return $query;
     }
     
 }

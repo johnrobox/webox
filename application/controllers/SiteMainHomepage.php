@@ -14,24 +14,36 @@ class SiteMainHomepage extends CI_Controller {
             $this->session->has_userdata('EmployerLastname') &&
             $this->session->has_userdata('EmployerToken')
             ) {
-                $data['title'] = 'Employer Page';
-                $this->load->view('visitor/employer_default/header',$data);
-                $this->load->view('visitor/employer_default/top-menu');
-                $data['employerCoins'] = $this->EmployerInfoModel->getCoins($this->session->userdata('employerId'));
-                $this->load->view('visitor/employer_default/main-head',$data);
-                $data['location'] = $this->LocationModel->getAllLocation();
-                $this->load->view('visitor/employer_pages/index',$data);
-                $this->load->view('visitor/employer_default/footer');
-                $this->load->view('visitor/employer_modal/employer-about-posting-job');
-                $this->load->view('visitor/employer_modal/employer-logout-modal');
+            
+            $result = $this->EmployerInfoModel->getCoins();
+            if ($result == false) {
+                redirect(base_url().'index.php/EmployerLogoutC');
+            }
+            
+            $data = array(
+                'employerCoins' => $result,
+                'location' => $this->LocationModel->getAllLocation(),
+                'title' =>  'Employer Page'
+            );
+            
+            $this->load->view('visitor/employer_default/header',$data);
+            $this->load->view('visitor/employer_default/top-menu');
+            $this->load->view('visitor/employer_default/main-head');
+            $this->load->view('visitor/employer_pages/index');
+            $this->load->view('visitor/employer_default/footer');
+            $this->load->view('visitor/employer_modal/employer-about-posting-job');
+            $this->load->view('visitor/employer_modal/employer-logout-modal');
+            
         } else {
-            $this->load->view('visitor/visitor_default_format/header');
+            
+            $data['title'] = 'Homepage';
+            $this->load->view('visitor/visitor_default_format/header',$data);
             $this->load->view('visitor/visitor_default_format/top-menu');
             $this->load->view('visitor/visitor_default_format/main-head');
-            $data['location'] = $this->LocationModel->getAllLocation();
-            $this->load->view('visitor/visitor_pages/index',$data);
+            $this->load->view('visitor/visitor_pages/index');
             $this->load->view('visitor/visitor_default_format/footer');
             $this->load->view('visitor/employer_modal/employer-login-modal');
+            
         }
     }
 }
