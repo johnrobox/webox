@@ -36,7 +36,11 @@ class SiteMainHomepage extends CI_Controller {
             
         } else {
             
-            $data['title'] = 'Homepage';
+            $data = array(
+                'location' => $this->LocationModel->getAllLocation(),
+                'title' => 'Homepage'
+            );
+            
             $this->load->view('visitor/visitor_default_format/header',$data);
             $this->load->view('visitor/visitor_default_format/top-menu');
             $this->load->view('visitor/visitor_default_format/main-head');

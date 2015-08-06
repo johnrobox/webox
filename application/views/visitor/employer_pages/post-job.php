@@ -10,7 +10,6 @@
             
             
             <div class="col-sm-8 col-sm-offset-2">
-                <?php echo $this->session->flashdata('CompanyAddedYes'); ?>
                 <?php echo $this->session->flashdata('CompanyAddedNo'); ?>
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -21,7 +20,7 @@
                         
                         <div class="row">
                             
-                            <div class="col-sm-6">
+                            <div class="col-sm-12">
                                 <div class="breadcrumb">
                                     <?php echo form_open(base_url().'index.php/EmployerMainPageC/addCompany/'.$location); ?>
                                     
@@ -79,17 +78,6 @@
                                         <input type="submit" class="btn btn-primary" value="Add"/>
                                         <input type="reset" class="btn btn-default" value="Reset"/>
                                         <?php echo form_close(); ?>
-                                </div>
-                            </div>
-                            
-                            <div class="col-sm-6">
-                                <div class="breadcrumb">
-                                    
-                                        <div class="form-group">
-                                            <label for="companyProfile">Browse company profile</label>
-                                            <input type="file" name="companyProfile" class="form-control" />
-                                        </div>      
-                                    
                                 </div>
                             </div>
                             
