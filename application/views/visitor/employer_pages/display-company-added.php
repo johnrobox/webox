@@ -8,8 +8,11 @@
                         
                     </div>
                     <div class="panel-body">
-                        <pre>
-                        <?php echo print_r($allCompany); ?>
+                        <?php if (is_array($allCompany)) { ?>
+                        <?php     echo 'need to fetch'; ?>
+                        <?php } else { ?>
+                        <?php     echo 'no data'; ?>
+                        <?php } ?>
                     </div>
                     <div class="panel-footer">
                         
