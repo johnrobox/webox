@@ -1,5 +1,5 @@
-<nav class="navbar navbar-default" role="navigation">
-  <div style="background-color: #365f9c;" class="container-fluid">
+<nav class="navbar navbar-inverse" role="navigation">
+  <div style="" class="container-fluid"> <!-- background-color: #365f9c; -->
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">

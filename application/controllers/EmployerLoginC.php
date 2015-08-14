@@ -21,7 +21,7 @@ class EmployerLoginC extends CI_Controller {
             $result = $this->EmployerLoginModel->validateLogin($email,md5($password));
             if ($result){
                 $this->session->set_userdata($result);
-                redirect(base_url());
+                redirect(base_url().'index.php/EmployerDisplayCompanyC');
                 exit();
             }else{
                 $this->session->set_flashdata('CannotLogin',$this->alert->dangerAlert('Inable to login your acount. Error'));
